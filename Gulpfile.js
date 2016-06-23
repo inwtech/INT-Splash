@@ -79,5 +79,6 @@ gulp.task('clean', function(cb) {
 });
 
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'images', 'fonts');
+    gulp.start('styles', 'scripts', 'images', 'fonts')
+    return gutil.log('Gulp is running!')
 });
