@@ -18,6 +18,7 @@ var gulp = require('gulp'),
 /* Set paths */
 
 var paths = {
+
     /* Source paths */
     styles: ['assets/sass/main.scss'],
     scripts: [
@@ -33,13 +34,20 @@ var paths = {
     ],
 
     /* Output paths */
-    stylesOutput: 'styles',
-    scriptsOutput: 'js',
-    imagesOutput: 'images',
-    fontsOutput: 'fonts'
+
+    stylesOutput: '_site/styles',
+    scriptsOutput: '_site/js',
+    imagesOutput: '_site/images',
+    fontsOutput: '_site/fonts'
 };
 
 /* Tasks */
+// gulp.task('indexfile', function() {
+//     gulp.src(paths.myFile)
+//     .pipe(gulp.dest(paths.myFileOutput)
+//
+// });
+
 gulp.task('styles', function() {
     return sass(paths.styles,{ style: 'expanded' })
         .pipe(gulp.dest(paths.stylesOutput))
@@ -80,5 +88,5 @@ gulp.task('clean', function(cb) {
 
 gulp.task('default', ['clean'], function() {
     gulp.start('styles', 'scripts', 'images', 'fonts')
-    return gutil.log('Gulp is running!')
+    //return gutil.log('Gulp is running!')
 });
